@@ -8,17 +8,17 @@
 <style type="text/css">
 	<%@ include file="/css/index.css" %>
 </style>
-<script src="/ProjectServlet/js/roll.js"></script>
+<script src="${pageContext.request.contextPath}/js/roll.js"></script>
 <% java.net.InetAddress address = java.net.InetAddress.getLocalHost(); %>
 <% java.lang.String ip = address.getHostAddress(); %>
 <%
-		String path = request.getContextPath();
-		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	%>
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%
-		String message = "what?";
-		message = (String)session.getAttribute("message") == null?"":(String)session.getAttribute("message");
-	%>
+	String message = "what?";
+	message = (String)session.getAttribute("message") == null?"":(String)session.getAttribute("message");
+%>
 </head>
 <body>
 	<div class="contentPanel">
@@ -74,7 +74,7 @@
 			${pageContext.request.contextPath}
 		</div>
 	</div>
-	<script src="/ProjectServlet/js/jquery.min.js"></script>
-	<script src="/ProjectServlet/js/index.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/index.js"></script>
 </body>
 </html>
