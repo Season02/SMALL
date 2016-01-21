@@ -15,14 +15,15 @@ import com.sayhanabi.factory.DaoFactory;
  * Servlet implementation class LoginServlet
  */
 @WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet 
+{
 	private static final long serialVersionUID = 110L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public LoginServlet() 
-    {    	
+    {
         super();
     }
 
