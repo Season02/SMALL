@@ -58,72 +58,75 @@
 				</div>			
 			</div>
 			
+			<div class="column three-fourths">
+				<div class="tabnav">
+					<div class="right">
+						<a href="/account" class="btn btn-sm">
+			                <span aria-hidden="true" class="octicon octicon-pencil"></span>
+			                Edit profile
+						</a>
+			        </div>
+			
+			      <nav class="tabnav-tabs" data-pjax="" role="navigation">
+			        <a href="/Season02" class="tabnav-tab selected" aria-selected="true" role="tab">
+			          <span aria-hidden="true" class="octicon octicon-diff-added"></span>
+			          	管理员功能
+			        </a>
+			        <a href="/Season02?tab=repositories" class="tabnav-tab " aria-selected="false" role="tab">
+			          <span aria-hidden="true" class="octicon octicon-repo"></span>
+			          Repositories
+			        </a>
+			        <a href="/Season02?tab=activity" class="tabnav-tab " aria-selected="false" role="tab">
+			          <span aria-hidden="true" class="octicon octicon-rss"></span>
+			          Public activity
+			        </a>
+			      </nav>
+	    		</div>
+	    		
+	    		<div class="tab-content js-repo-filter">
+	    			<div class="contributions-tab">			
+						<div class="columns popular-repos">
+							<div class="single-column">
+								<div class="boxed-group flush">
+									<h3>数据汇总</h3>
+									<ul class="boxed-group-inner mini-repo-list">
+										<li class="public source no-description">
+											<a href="/Season02/MK2.0" class="mini-repo-list-item css-truncate">
+											<span aria-hidden="true" class="octicon octicon-repo repo-icon"></span>
+											<span class="repo-and-owner css-truncate-target">
+												<span class="repo" title="MK2.0">查询所有管理员</span>
+											</span>
+											<span class="stars">
+												0
+												<span aria-hidden="true" class="octicon octicon-star"></span>
+											</span>
+											<span class="repo-description css-truncate-target"></span>
+											</a>
+										</li>
+										<li class="public source no-description">
+											<a href="/Season02/ProjectServlet" class="mini-repo-list-item css-truncate">
+											<span aria-hidden="true" class="octicon octicon-repo repo-icon"></span>
+											<span class="repo-and-owner css-truncate-target">
+												<span class="repo" title="ProjectServlet">ProjectServlet</span>
+											</span>
+											<span class="stars">
+												0
+												<span aria-hidden="true" class="octicon octicon-star"></span>
+											</span>
+											<span class="repo-description css-truncate-target"></span>
+											</a>
+										</li>				
+									</ul>
+								</div>
+							</div>			
+						</div>
+					</div>
+	    		</div>			    		
+			</div>	
+					
 		</div>
 
-		<div class="three-fourths">
-			<div class="tabnav">
-				<div class="right">
-					<a href="/account" class="btn btn-sm">
-		                <span aria-hidden="true" class="octicon octicon-pencil"></span>
-		                Edit profile
-					</a>
-		        </div>
 		
-		      <nav class="tabnav-tabs" data-pjax="" role="navigation">
-		        <a href="/Season02" class="tabnav-tab selected" aria-selected="true" role="tab">
-		          <span aria-hidden="true" class="octicon octicon-diff-added"></span>
-		          	管理员功能
-		        </a>
-		        <a href="/Season02?tab=repositories" class="tabnav-tab " aria-selected="false" role="tab">
-		          <span aria-hidden="true" class="octicon octicon-repo"></span>
-		          Repositories
-		        </a>
-		        <a href="/Season02?tab=activity" class="tabnav-tab " aria-selected="false" role="tab">
-		          <span aria-hidden="true" class="octicon octicon-rss"></span>
-		          Public activity
-		        </a>
-		      </nav>
-    		</div>
-    		
-			<div class="contributions-tab">			
-				<div class="columns popular-repos">
-					<div class="single-column">
-						<div class="boxed-group flush">
-							<h3>Popular repositories</h3>
-							<ul class="boxed-group-inner mini-repo-list">
-							<li class="public source no-description">
-							<a href="/Season02/MK2.0" class="mini-repo-list-item css-truncate">
-							<span aria-hidden="true" class="octicon octicon-repo repo-icon"></span>
-							<span class="repo-and-owner css-truncate-target">
-							<span class="repo" title="MK2.0">MK2.0</span>
-							</span>
-							<span class="stars">
-							0
-							<span aria-hidden="true" class="octicon octicon-star"></span>
-							</span>
-							<span class="repo-description css-truncate-target"></span>
-							</a>
-							</li>
-							<li class="public source no-description">
-							<a href="/Season02/ProjectServlet" class="mini-repo-list-item css-truncate">
-							<span aria-hidden="true" class="octicon octicon-repo repo-icon"></span>
-							<span class="repo-and-owner css-truncate-target">
-							<span class="repo" title="ProjectServlet">ProjectServlet</span>
-							</span>
-							<span class="stars">
-							0
-							<span aria-hidden="true" class="octicon octicon-star"></span>
-							</span>
-							<span class="repo-description css-truncate-target"></span>
-							</a>
-							</li>				
-							</ul>
-						</div>
-					</div>			
-				</div>
-			</div>
-			    		
-		</div>
 	</div>
 		
 </body>
