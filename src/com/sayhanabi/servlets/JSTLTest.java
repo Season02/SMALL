@@ -38,6 +38,7 @@ public class JSTLTest extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		System.out.println("ss");
 		request.setAttribute("request", "请求");
 		request.getSession().setAttribute("session","会话");
 		request.getServletContext().setAttribute("application","应用");
