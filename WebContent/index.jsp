@@ -36,7 +36,7 @@
 				<input class="logging" type="submit" value="登录" />
 				<div class="line"></div>
 				<div class="register">
-					<span clsaa="hit">需要一个帐号?</span> <a href="/mnager/register.jsp">立即注册</a>
+					<span clsaa="hit">需要一个帐号?</span> <a href="/pages/manager/register.jsp">立即注册</a>
 				</div>
 			</form>
 		</div>
@@ -48,8 +48,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button type="button" onClick="lookout()">Get!</button>
-						<button onclick="getElementById(" demo").innerHTML=Date()">The
+						<button onClick="javascript:window.location='JSTLTest?user=null'">jstl</button>
+						<button onclick="getElementById('demo').innerHTML=Date()">The
 							time is?</button>
 					</td>
 				</tr>

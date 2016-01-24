@@ -1,6 +1,8 @@
 package com.sayhanabi.servlets;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class JSTLTest
  */
 @WebServlet("/JSTLTest")
-public class JSTLTest extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class JSTLTest extends HttpServlet 
+{
+	private static final long serialVersionUID = 1111L;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,17 +30,19 @@ public class JSTLTest extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		request.setAttribute("request", "请求");
-		request.getSession().setAttribute("session","会话");
-		request.getServletContext().setAttribute("application","应用");
-		request.getRequestDispatcher("jstl.jsp").forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		request.setAttribute("request", "请求");
+		request.getSession().setAttribute("session","会话");
+		request.getServletContext().setAttribute("application","应用");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("pages/test/jstl.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }
