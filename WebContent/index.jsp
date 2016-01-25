@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,14 +16,14 @@
 %>
 <%
 	String message = "what?";
-	message = (String)session.getAttribute("message") == null?"":(String)session.getAttribute("message");
+	message = (String)request.getAttribute("message") == null?"":(String)session.getAttribute("message");
 %>
 </head>
 <body>
 	<div class="contentPanel">
 		<div class="login">
 			<div class="caption">帐号登陆</div>
-			<form action="LoginServlet" method="post">
+			<form name="loginform" action="ManagerLoginServlet?action=login" method="post">
 				<input id="username" name="username" required="what?"
 					autofocus="autofocus" placeholder="请输入帐号" class="user-name"
 					type="text"> <input id="password" name="password"
@@ -36,7 +35,7 @@
 				<input class="logging" type="submit" value="登录" />
 				<div class="line"></div>
 				<div class="register">
-					<span clsaa="hit">需要一个帐号?</span> <a href="/pages/manager/register.jsp">立即注册</a>
+					<span clsaa="hit">需要一个帐号?</span> <a href="pages/manager/register.jsp">立即注册</a>
 				</div>
 			</form>
 		</div>
