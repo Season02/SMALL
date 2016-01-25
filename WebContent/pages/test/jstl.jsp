@@ -15,7 +15,7 @@ ${application } application;
 <c:forEach items="${list }" var="obj" varStatus="current" >
 ${current.index } ${obj }
 <c:choose>
-	<c:when test="${obj.equal("hi") }">what</c:when>
+	<c:when test="${obj.equals('hi') }">what</c:when>
 	<c:otherwise>okey</c:otherwise>
 </c:choose>
 </c:forEach>

@@ -48,7 +48,7 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<button onClick="javascript:window.location='JSTLTest?user=null'">jstl</button>
+						<button onClick="javascript:window.location='JSTLTest'">jstl</button>
 						<button onclick="getElementById('demo').innerHTML=Date()">The
 							time is?</button>
 					</td>
