@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,13 +30,16 @@
 					type="text"> <input id="password" name="password"
 					required="required" placeholder="请输入密码" class="pass-word"
 					type="password" autocomplete="off">
-				<div class="error-mess">
-					<span class="error-icon"></span><span id="error-message"><%=message %></span>
-				</div>
+				<c:if test="${not empty message}"> 
+					<div class="error-mess">
+						<span class="error-icon"></span><span id="error-message">${message}</span>
+					</div>
+				</c:if>
+				
 				<input class="logging" type="submit" value="登录" />
 				<div class="line"></div>
 				<div class="register">
-					<span clsaa="hit">需要一个帐号?</span> <a href="pages/manager/register.jsp">立即注册</a>
+					<span class="hit">需要一个帐号?</span> <a href="pages/manager/register.jsp">立即注册</a>
 				</div>
 			</form>
 		</div>

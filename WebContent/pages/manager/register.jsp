@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,6 +38,11 @@
 	<div id="login">
 		<h1><a href="https://cn.wordpress.org/" title="爱樱花，爱商城！">爱樱花，爱商城！</a></h1>
 		<p class="message register">注册超级管理员</p>
+		<c:if test="${login_err.equals('code')}"> 
+			<div id="login_error">	<strong>错误</strong>：邀请码错误。<br>
+				<strong>错误</strong>：邀请码错误,请联系站长大人。<br>
+			</div>
+		</c:if>
 		<form name="registerform" id="registerform" action="ManagerLoginServlet?action=register" method="post" onsubmit="return check(this);">
 		<p>
 			<label for="user_code">邀请码<br>
@@ -54,7 +60,7 @@
 			<label for="user_repass">重复密码<br>
 			<input type="password" name="user_repass" required="required" id="user_repass" class="input" value="" size="20"></label>
 		</p>
-			<p id="reg_passmail">请向站长取得邀请码。</p>
+			<p id="reg_passmail">请向站长大人取得邀请码。</p>
 		<br class="clear">
 		<input type="hidden" name="redirect_to" value="">
 		<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="注册"></p>
@@ -65,7 +71,7 @@
 		<a href="http://www.ixiqi.com/wp-login.php?action=lostpassword" title="找回密码">忘记密码？</a>
 		</p>
 	
-		<p id="backtoblog"><a href="/index.jsp" title="不知道自己在哪？">← 回到樱花商城主页！</a></p>
+		<p id="backtoblog"><a href="/index.jsp" title="不知道自己在哪？">←      回到樱花商城主页！</a></p>
 	</div>
 
 	<script type="text/javascript">

@@ -65,7 +65,13 @@ public class ManagerLoginServlet extends HttpServlet
 				break;
 			
 			case "register":
-				
+				String user_code = request.getParameter("user_code");
+				System.out.println(user_code);
+				if(!user_code.equals("sayhanabi"))
+				{
+					request.setAttribute("login_err", "code");
+					request.getRequestDispatcher("pages/manager/register.jsp").forward(request, response);
+				}
 				break;
 			
 			default:
