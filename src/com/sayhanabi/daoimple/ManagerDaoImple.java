@@ -2,6 +2,8 @@ package com.sayhanabi.daoimple;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import com.sayhanabi.dao.ManagerDao;
 import com.sayhanabi.db.MySQLIntrop;
 import com.sayhanabi.vo.Manager;
@@ -35,6 +37,15 @@ public class ManagerDaoImple implements ManagerDao
 			}
 		}
 		return -1;
+	}
+
+	@Override
+	public int addManager(String username, String password) 
+	{
+		Map<String,Object> args = new HashMap<String,Object>();
+		args.put(Manager.FIELDS[1], username);
+		args.put(Manager.FIELDS[2], password);
+		return MySQLIntrop.getMySQL().insert("tb_manager",args);
 	}
 	
 
