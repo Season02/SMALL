@@ -42,8 +42,10 @@ public class ManagerLoginServlet extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		System.out.println((String)request.getParameter("action"));
 		switch((String)request.getParameter("action"))
 		{
+			
 			case "login":
 				System.out.println("login");
 				String username = request.getParameter("username");
@@ -65,6 +67,7 @@ public class ManagerLoginServlet extends HttpServlet
 				break;
 			
 			case "register":
+				System.out.println("register");
 				String user_code = request.getParameter("user_code");
 				System.out.println(user_code);
 				if(!user_code.equals("sayhanabi"))
