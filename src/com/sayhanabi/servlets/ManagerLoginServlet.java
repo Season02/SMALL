@@ -42,20 +42,21 @@ public class ManagerLoginServlet extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		System.out.println((String)request.getParameter("action"));
+		String username;
+		String password;
 		switch((String)request.getParameter("action"))
 		{
 			
 			case "login":
 				System.out.println("login");
-				String username = request.getParameter("username");
-		        String password = request.getParameter("password");
+				username = request.getParameter("username");
+		        password = request.getParameter("password");
 		        int id = -1;
 		        
 		        if(( id = DaoFactory.getManager().authenticationManager(username, password) ) > -1)
 		        {
 		        	request.setAttribute("id",id);
-		            response.sendRedirect("pages/manager/manager.jsp") ;
+		            response.sendRedirect("pages/manager/manager.jsp");
 		        }
 		        else
 		        {
@@ -69,8 +70,21 @@ public class ManagerLoginServlet extends HttpServlet
 			case "register":
 				System.out.println("register");
 				String user_code = request.getParameter("user_code");
-				System.out.println(user_code);
-				if(!user_code.equals("sayhanabi"))
+				if(user_code.equals("sayhanabi"))
+				{
+					username = request.getParameter("user_login");
+			        password = request.getParameter("user_pass");
+					if(DaoFactory.getManager().addManager(username, password) > -1)
+			        {
+						response.sendRedirect("pages/manager/register.jsp");
+			        }
+					else
+					{
+						request.setAttribute("login_err", "fail");
+						request.getRequestDispatcher("pages/manager/register.jsp").forward(request, response);
+					}
+				}
+				else
 				{
 					request.setAttribute("login_err", "code");
 					request.getRequestDispatcher("pages/manager/register.jsp").forward(request, response);
