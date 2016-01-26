@@ -13,11 +13,11 @@ public class ManagerDaoImple implements ManagerDao
 	public static void main(String[] args)
 	{
 		ManagerDao dao = new ManagerDaoImple();
-		System.out.println(dao.authenticationManager("admin", "admin"));		
+		System.out.println(dao.authentication("admin", "admin"));		
 	}
 	
 	@Override
-	public int authenticationManager(String username, String password) 
+	public int authentication(String username, String password) 
 	{
 		int id = -1;
 //		MySQLIntrop mysql = new MySQLIntrop();
@@ -40,7 +40,7 @@ public class ManagerDaoImple implements ManagerDao
 	}
 
 	@Override
-	public int addManager(String username, String password) 
+	public int add(String username, String password) 
 	{
 		Map<String,Object> args = new HashMap<String,Object>();
 		args.put(Manager.FIELDS[1], username);

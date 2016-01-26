@@ -53,7 +53,7 @@ public class ManagerLoginServlet extends HttpServlet
 		        password = request.getParameter("password");
 		        int id = -1;
 		        
-		        if(( id = DaoFactory.getManager().authenticationManager(username, password) ) > -1)
+		        if(( id = DaoFactory.getManager().authentication(username, password) ) > -1)
 		        {
 		        	request.setAttribute("id",id);
 		            response.sendRedirect("pages/manager/manager.jsp");
@@ -74,7 +74,7 @@ public class ManagerLoginServlet extends HttpServlet
 				{
 					username = request.getParameter("user_login");
 			        password = request.getParameter("user_pass");
-					if(DaoFactory.getManager().addManager(username, password) > -1)
+					if(DaoFactory.getManager().add(username, password) > -1)
 			        {
 						response.sendRedirect("pages/manager/register.jsp");
 			        }

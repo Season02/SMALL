@@ -14,12 +14,13 @@ public interface ManagerDao
 	 * @return
 	 * if check failure will return -1 else will return the id
 	 */
-	public int authenticationManager(String username, String password);
+	public int authentication(String username, String password);
 	/**
 	 * Add Administrator if failed will return -1
 	 * @param username
 	 * @param password
 	 * @return
 	 */
-	public int addManager(String username, String password);
+	public int add(String username, String password);
+
 }
