@@ -1,7 +1,7 @@
-package com.sayhanabi.factory;
+package com.sayhanabi.common.factory;
 
-import com.sayhanabi.dao.ManagerDao;
-import com.sayhanabi.daoimple.ManagerDaoImple;
+import com.sayhanabi.framework.dao.ManagerDao;
+import com.sayhanabi.framework.daoImpl.ManagerDaoImple;
 
 /**
  * Implemented dao class all here
@@ -16,6 +16,5 @@ public class DaoFactory
 	public static ManagerDao getManager()
 	{
 		return manager;
-	}
-	
+	}	
 }

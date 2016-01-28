@@ -1,4 +1,4 @@
-package com.sayhanabi.db;
+package com.sayhanabi.common.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -120,15 +120,13 @@ public class MySQLIntrop
 	}
 	
 	/**
-	 * This method will take a map who has initialized key as a parameter,the 
-	 * key of this map is the table head,and the map`s value are all null,when
-	 * this method executed the value will be set. 
+	 * select all data return arguments
 	 * @param table
 	 * table name
 	 * @param value
 	 * key parameter name value values
 	 * @return
-	 * if operation success return true,else return false
+	 * 
 	 */
 	public List<HashMap<String,String>> select(String table,String[] arguments)
 	{
@@ -141,6 +139,73 @@ public class MySQLIntrop
 			{
 				st = connection.createStatement();
 				rs = st.executeQuery("select * from " + table);
+			} 
+			catch (SQLException e) 
+			{
+				e.printStackTrace();
+				return null;
+			}
+		}
+		else
+		{
+			return null;
+		}
+		try 
+		{
+			while(rs.next())
+			{
+				HashMap<String,String> map = new HashMap<>();
+				for(String par:arguments)
+				{
+					map.put(par,rs.getString(par));
+				}
+				result.add(map);
+			}
+			return result;
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * get Map-ed data from table if has limit limit it
+	 * if has like we fuzzy search it
+	 * @param table
+	 * table name
+	 * @param arguments
+	 * parameters
+	 * @param like
+	 * fuzzy query
+	 * @param limit
+	 * limit boundary : limit[0]->start index(start with 0), limit[1]-> data count
+	 * @return
+	 * result
+	 */
+	public List<HashMap<String,String>> select(String table, String[] arguments, String[] like, String[] limit)
+	{
+		ResultSet rs;
+		Statement st;
+		List<HashMap<String,String>> result = new ArrayList<>(); 
+		StringBuffer sql = new StringBuffer("select * from " + table + " where 1=1" );
+		if(like!= null)
+		{
+			sql.append("and " + like[0] + " like '%");
+			sql.append(like[1]);
+			sql.append("%'");
+		}
+		if(limit != null)
+		{
+			sql.append(" limit " + limit[0] + "," + limit[1]);
+		}
+		if(connection != null)
+		{
+			try 
+			{
+				st = connection.createStatement();
+				rs = st.executeQuery(sql.toString());
 			} 
 			catch (SQLException e) 
 			{
@@ -411,6 +476,55 @@ public class MySQLIntrop
 		{
 			return -1;
 		}
+	}
+	
+	/**
+	 * get count
+	 * @param table
+	 * table name
+	 * @param columnName
+	 * column name
+	 * @return
+	 * count and -1
+	 */ 
+	public int selectCount(String table)
+	{
+		ResultSet rs;
+		Statement st;
+		int count = -1;
+		if(connection != null)
+		{
+			try 
+			{
+				st = connection.createStatement();
+				rs = st.executeQuery("select count(*) from " + table);
+			} 
+			catch (SQLException e) 
+			{
+				e.printStackTrace();
+				return -1;
+			}
+		}
+		else
+		{
+			return -1;
+		}
+		try 
+		{
+			while(rs.next())
+			{
+				count = rs.getInt("count(*)");
+			}
+			rs.close();
+			st.close();
+			return count;
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			return -1;
+		}		
+		
 	}
 	
 	/**

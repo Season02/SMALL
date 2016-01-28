@@ -5,9 +5,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>樱花商场 管理员注册</title>
-	<link rel="stylesheet" id="buttons-css" href="http://www.ixiqi.com/wp-includes/css/buttons.min.css?ver=3.9.10" type="text/css" media="all">
-	<link rel="stylesheet" id="dashicons-css" href="http://www.ixiqi.com/wp-includes/css/dashicons.min.css?ver=3.9.10" type="text/css" media="all">
-	<link rel="stylesheet" id="login-css" href="http://www.ixiqi.com/wp-admin/css/login.min.css?ver=3.9.10" type="text/css" media="all">
+	<style type="text/css">
+		<%@ include file="/css/ixiqi/buttons.min.css" %>
+	</style>
+	<style type="text/css">
+		<%@ include file="/css/ixiqi/dashicons.min.css" %>
+	</style>
+	<style type="text/css">
+		<%@ include file="/css/ixiqi/login.min.css" %>
+	</style>
 	<script>
 	      function check(form) 
 	      {

@@ -1,4 +1,4 @@
-package com.sayhanabi.vo;
+package com.sayhanabi.framework.vo;
 
 public class Manager 
 {

@@ -1,8 +1,11 @@
+<%@page import="com.sayhanabi.framework.vo.Manager"%>
+<%@page import="com.sayhanabi.framework.vo.PagePointer"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>樱花后台</title>
 <style type="text/css">
 	<%@ include file="/css/manager.css" %>
 </style>
@@ -13,6 +16,17 @@
 <style type="text/css">
 	<%@ include file="/css/public.css" %>
 </style>
+<script>
+	function toServlet(servlet,arg) 
+	{	
+		document.forms[0].setAttribute("action", <%=path%> + "/" + servlet + "?action=" + arg);
+	 	document.forms[0].submit();
+	}
+	function pageLimitGuider(servlet,total,last)
+	{
+		
+	}
+</script>
 </head>
 <body>
 
@@ -83,38 +97,85 @@
 	    		</div>
 	    		
 	    		<div class="tab-content js-repo-filter">
-	    			<div class="contributions-tab">			
+	    			<div class="contributions-tab">
 						<div class="columns popular-repos">
 							<div class="single-column">
 								<div class="boxed-group flush">
-									<h3>数据汇总</h3>
+									<c:choose>
+										<c:when test="${message.equals('data_gather')}">
+											<h3>查询所有管理员</h3>
+											<!--
+											 <div class="site-search" role="search">
+											<form accept-charset="UTF-8" action="/search" method="get">
+											<label class="js-chromeless-input-container form-control">
+												<input type="text" placeholder="按姓名搜索">
+											</label>
+											</form>
+											</div>
+											-->
+										</c:when>
+									</c:choose>
+									
 									<ul class="boxed-group-inner mini-repo-list">
-										<li class="public source no-description">
-											<a href="/Season02/MK2.0" class="mini-repo-list-item css-truncate">
-											<span aria-hidden="true" class="octicon octicon-repo repo-icon"></span>
-											<span class="repo-and-owner css-truncate-target">
-												<span class="repo" title="MK2.0">查询所有管理员</span>
-											</span>
-											<span class="stars">
-												0
-												<span aria-hidden="true" class="octicon octicon-star"></span>
-											</span>
-											<span class="repo-description css-truncate-target"></span>
-											</a>
-										</li>
-										<li class="public source no-description">
-											<a href="/Season02/ProjectServlet" class="mini-repo-list-item css-truncate">
-											<span aria-hidden="true" class="octicon octicon-repo repo-icon"></span>
-											<span class="repo-and-owner css-truncate-target">
-												<span class="repo" title="ProjectServlet">ProjectServlet</span>
-											</span>
-											<span class="stars">
-												0
-												<span aria-hidden="true" class="octicon octicon-star"></span>
-											</span>
-											<span class="repo-description css-truncate-target"></span>
-											</a>
-										</li>				
+										<c:choose>
+											<c:when test="${message.equals('data_gather')}">
+												<li id="title" class="public source no-description">
+													<a href="" id="${current.index}" class="mini-repo-list-item">
+													<span class="repo" title="ID">ID</span>
+													<span class="stars">USERNAME</span>
+													<span class="stars">PASSWORD</span>
+													</a>
+												</li>
+												<c:forEach items="${all_manager}" var="manager" varStatus="current">
+													<li class="public source no-description">
+													<a href="" id="${current.index}" class="mini-repo-list-item">
+													<span class="repo" title="ID">${manager.id }</span>
+													<span class="stars"> ${manager.manager } </span>
+													</a>
+													</li>
+												</c:forEach>
+												<% int limit = ((PagePointer)(request.getSession().getAttribute("page_pointer"))).limit; %>
+												<% int count = ((java.util.List)(request.getAttribute("all_manager"))).size(); %>
+												<% int loop = limit - count; %>
+												<% while(loop-- > 0)
+													{
+														out.print("<li class='public source no-description'>");
+														out.print("<a href='' class='mini-repo-list-item'> &nbsp </a>");
+														out.print("<span class='repo'>  </span></li>");
+													}
+												%>
+												<li id="control" class="public source no-description ">
+													<span class="mini-repo-list-item">
+														<a href="javascript:void()" onclick="firstPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="">第一页</a>
+														<a href="javascript:void()" onclick="previousPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')"  >上一页</a>
+														<a href="javascript:void()" onclick="nextPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="" >下一页</a>
+														<a href="javascript:void()" onclick="lastPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="">最后一页(${page_pointer.total})</a>
+													</span>
+												</li>
+											</c:when>
+											<c:otherwise>
+												<li class="public source no-description">
+												<a href="<%=path%>/ManagerServlet?action=data_gather" class="mini-repo-list-item css-truncate">
+													<span class="repo" title="Shiny Days!">查询所有管理员</span>
+													<span class="stars"> ${count} </span>
+												</a>
+												</li>
+												<li class="public source no-description">
+													<a href="/Season02/ProjectServlet" class="mini-repo-list-item css-truncate">
+													<span aria-hidden="true" class="octicon octicon-repo repo-icon"></span>
+													<span class="repo-and-owner css-truncate-target">
+														<span class="repo" title="ProjectServlet">ProjectServlet</span>
+													</span>
+													<span class="stars">
+														0
+														<span aria-hidden="true" class="octicon octicon-star"></span>
+													</span>
+													<span class="repo-description css-truncate-target"></span>
+													</a>
+												</li>	
+											</c:otherwise>											
+										</c:choose>
+													
 									</ul>
 								</div>
 							</div>			
@@ -127,6 +188,7 @@
 
 		
 	</div>
-		
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/manager/pageIndex.js"></script>
 </body>
 </html>

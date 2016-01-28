@@ -123,8 +123,10 @@ line-height: 17px;
 display: block;
 }
 
-h3 {
+h3 
+{
 font-size: 16px;
+display : inline
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -271,4 +273,18 @@ list-style-type: disc;
 -webkit-margin-end: 0px;
 -webkit-padding-start: 40px;
 }
+
+.site-search
+{
+	float:right;
+}
+
+
+
+
+
+
+
+
+
 

@@ -1,4 +1,8 @@
-package com.sayhanabi.dao;
+package com.sayhanabi.framework.dao;
+
+import java.util.List;
+
+import com.sayhanabi.framework.vo.Manager;
 
 /**
  * Method all here are deal with td_manager 
@@ -22,5 +26,26 @@ public interface ManagerDao
 	 * @return
 	 */
 	public int add(String username, String password);
+	/**
+	 * @return
+	 * Manager count if filed return -1
+	 */
+	public int getCounct();
+	/**
+	 * get all manager from database
+	 * @return
+	 */
+	public List<Manager> get();
+	/**
+	 * get result separated by start and end 
+	 * @param start
+	 * start index
+	 * @param length
+	 * count of data
+	 * @return
+	 * result
+	 */
+	public List<Manager> get(int start, int length);
+
 
 }

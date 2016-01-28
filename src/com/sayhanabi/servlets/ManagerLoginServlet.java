@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sayhanabi.factory.DaoFactory;
+import com.sayhanabi.common.factory.DaoFactory;
 
 /**
  * Servlet implementation class LoginServlet
@@ -42,6 +42,8 @@ public class ManagerLoginServlet extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		String username;
 		String password;
 		switch((String)request.getParameter("action"))
@@ -55,8 +57,10 @@ public class ManagerLoginServlet extends HttpServlet
 		        
 		        if(( id = DaoFactory.getManager().authentication(username, password) ) > -1)
 		        {
-		        	request.setAttribute("id",id);
-		            response.sendRedirect("pages/manager/manager.jsp");
+		        	request.getSession().setAttribute("id",id);
+		        	request.setAttribute("count", DaoFactory.getManager().getCounct());
+		        	request.getRequestDispatcher("pages/manager/manager.jsp").forward(request,response);
+		            //response.sendRedirect("pages/manager/manager.jsp");
 		        }
 		        else
 		        {
