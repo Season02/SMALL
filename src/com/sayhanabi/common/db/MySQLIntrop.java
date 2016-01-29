@@ -16,7 +16,7 @@ public class MySQLIntrop
 	private Connection connection;
 	private final String CLASSPATCH = "com.mysql.jdbc.Driver";
 	private final String ACCOUNT = "root";
-	private final String PASSWORD = "admin";
+	private final String PASSWORD = "651234";
 	private final String URL = "jdbc:mysql://localhost:3306/small";
 	private final String MYSQL_BASIC_URL = "jdbc:mysql://localhost:3306/"; 
 	
