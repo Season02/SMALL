@@ -8,6 +8,7 @@ import java.util.Map;
 import com.sayhanabi.common.db.MySQLIntrop;
 import com.sayhanabi.framework.dao.ManagerDao;
 import com.sayhanabi.framework.vo.Manager;
+import com.sayhanabi.util.BCrypt;
 
 public class ManagerDaoImple implements ManagerDao 
 {
@@ -28,8 +29,9 @@ public class ManagerDaoImple implements ManagerDao
 			for(HashMap<String,String> map : result)//check user
 			{
 				id = -1;
-				//FIELDS[1] USERNAME,FIELDS[2] PASSWORD
-				if(map.get(Manager.FIELDS[1]).equals(username) && map.get(Manager.FIELDS[2]).equals(password))
+				//if(map.get(Manager.FIELDS[1]).equals(username) && map.get(Manager.FIELDS[2]).equals(password))
+				if(map.get(Manager.FIELDS[1]).equals(username) 
+						&& BCrypt.checkpw(password, map.get(Manager.FIELDS[2])) )
 				{
 					return Integer.parseInt(map.get(Manager.FIELDS[0]));
 				}
@@ -41,9 +43,11 @@ public class ManagerDaoImple implements ManagerDao
 	@Override
 	public int add(String username, String password) 
 	{
+        //Encrypt password
+        String hash = BCrypt.hashpw(password, BCrypt.gensalt());
 		Map<String,Object> args = new HashMap<String,Object>();
 		args.put(Manager.FIELDS[1], username);
-		args.put(Manager.FIELDS[2], password);
+		args.put(Manager.FIELDS[2], hash);
 		return MySQLIntrop.getMySQL().insert("tb_manager",args);
 	}
 

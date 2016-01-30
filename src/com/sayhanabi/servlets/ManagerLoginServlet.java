@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sayhanabi.common.factory.DaoFactory;
+import com.sayhanabi.util.BCrypt;
 
 /**
  * Servlet implementation class LoginServlet
@@ -18,7 +19,7 @@ import com.sayhanabi.common.factory.DaoFactory;
 public class ManagerLoginServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 110L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -33,7 +34,7 @@ public class ManagerLoginServlet extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		
+
 	}
 
 	/**
@@ -42,8 +43,7 @@ public class ManagerLoginServlet extends HttpServlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
+		String remoteIp = request.getRemoteAddr();
 		String username;
 		String password;
 		switch((String)request.getParameter("action"))
@@ -57,7 +57,8 @@ public class ManagerLoginServlet extends HttpServlet
 		        
 		        if(( id = DaoFactory.getManager().authentication(username, password) ) > -1)
 		        {
-		        	request.getSession().setAttribute("id",id);
+		        	DaoFactory.getLog().addLog("System","adminstrator login", username + " has login",remoteIp);
+		        	request.getSession().setAttribute("administratorId",id);
 		        	request.setAttribute("count", DaoFactory.getManager().getCounct());
 		        	request.getRequestDispatcher("pages/manager/manager.jsp").forward(request,response);
 		            //response.sendRedirect("pages/manager/manager.jsp");
@@ -80,6 +81,8 @@ public class ManagerLoginServlet extends HttpServlet
 			        password = request.getParameter("user_pass");
 					if(DaoFactory.getManager().add(username, password) > -1)
 			        {
+						DaoFactory.getLog().addLog
+							("register","administrator register", username  + " has registered",remoteIp);
 						response.sendRedirect("pages/manager/register.jsp");
 			        }
 					else
@@ -98,7 +101,6 @@ public class ManagerLoginServlet extends HttpServlet
 			default:
 				break;
 		}
-		
 		
 	}
 
