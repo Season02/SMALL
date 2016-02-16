@@ -1,0 +1,28 @@
+﻿body{padding:0px;margin:0px;}
+.footer{margin:0 auto ;width:1024px;height:280px; }
+.footer_top{
+ height:20px; 
+ background-image:url('../images/line.png');
+ background-repeat:no-repeat;background-position:bottom;
+ font-size:14px;text-align:center;letter-spacing:3px;padding-top:10px;
+ padding-right:25px;
+ }
+ 
+ .footer_center{width:1024px;height:80px; text-align:center;
+ line-height:24px;font-size:12px;}
+ .footer_bottom{
+   width:1024px;height:154px; 
+   
+ }
+ .footer_bottom ul{width:1022px; height:152px;padding:0px;margin:0px;list-style:none;}
+ .footer_bottom ul li{float:left; width:200px;height:150px;}
+ .footer_bottom ul li dl dd{padding:0px;margin:0px;}
+ .footer_bottom ul li dl dt{line-height:28px;font-weight:bold; font-size:18px;}
+ .footer_bottom ul li dl{line-height:24px;text-align:center; padding:0px;margin:0px;}
+ .footer_bottom ul li dl dd a{display:block;text-decoration:none;color:#999;font-size:16px;}
+ 
+ .menu_img1{background-image:url('../images/shopping_guide.png');background-repeat:no-repeat;background-position:25px 15px;}
+ .menu_img2{background-image:url('../images/dispatching.png');background-repeat:no-repeat;background-position:25px 15px;}
+ .menu_img3{background-image:url('../images/sale.png');background-repeat:no-repeat;background-position:25px 15px;}
+ .menu_img4{background-image:url('../images/sale.png');background-repeat:no-repeat;background-position:25px 15px;}
+ .menu_img5{background-image:url('../images/shopping_guide.png');background-repeat:no-repeat;background-position:25px 15px;}

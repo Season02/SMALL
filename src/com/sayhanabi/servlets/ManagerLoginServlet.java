@@ -48,14 +48,13 @@ public class ManagerLoginServlet extends HttpServlet
 		String password;
 		switch((String)request.getParameter("action"))
 		{
-			
 			case "login":
-				System.out.println("login");
+				//System.out.println("login");
 				username = request.getParameter("username");
 		        password = request.getParameter("password");
 		        int id = -1;
 		        
-		        if(( id = DaoFactory.getManager().authentication(username, password) ) > -1)
+		        if(( id = DaoFactory.getManager().authentication(username, password)) > -1)
 		        {
 		        	DaoFactory.getLog().addLog("System","adminstrator login", username + " has login",remoteIp);
 		        	request.getSession().setAttribute("administratorId",id);
