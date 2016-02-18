@@ -66,7 +66,7 @@ public class ManagerLoginServlet extends HttpServlet
 		        {
 		        	// 登录失败
 					request.setAttribute("message", "帐户名或登录密码不正确，请重新输入");
-					RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("pages/manager/manager.jsp");
 					dispatcher.forward(request, response);
 		        }
 				break;
