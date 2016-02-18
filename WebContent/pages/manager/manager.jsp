@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>樱花后台</title>
+<title>爱樱花,爱商城!</title>
 <style type="text/css">
 	<%@ include file="/css/manager.css" %>
 </style>
@@ -22,10 +22,7 @@
 		document.forms[0].setAttribute("action", <%=path%> + "/" + servlet + "?action=" + arg);
 	 	document.forms[0].submit();
 	}
-	function pageLimitGuider(servlet,total,last)
-	{
-		
-	}
+	
 </script>
 </head>
 <body>
@@ -35,7 +32,7 @@
 			<a class="header-logo-invertocat" href="index.jsp">
   				<span class=""></span>
 			</a>
-			管理员窗口
+			樱花商城管理员窗口
 		</div>
 	</div>
 	<div class="page-content container">
@@ -81,7 +78,7 @@
 			        </div>
 			
 			      <nav class="tabnav-tabs" data-pjax="" role="navigation">
-			        <a href="/Season02" class="tabnav-tab selected" aria-selected="true" role="tab">
+			        <a href="<%=path%>/pages/manager/manager.jsp" class="tabnav-tab selected" aria-selected="true" role="tab">
 			          <span aria-hidden="true" class="octicon octicon-diff-added"></span>
 			          	管理员功能
 			        </a>
@@ -120,17 +117,18 @@
 										<c:choose>
 											<c:when test="${message.equals('data_gather')}">
 												<li id="title" class="public source no-description">
-													<a href="" id="${current.index}" class="mini-repo-list-item">
-													<span class="repo" title="ID">ID</span>
-													<span class="stars">USERNAME</span>
-													<span class="stars">PASSWORD</span>
+													<a id="${current.index}" class="mini-repo-list-item">
+													<span class="repo" name="id" title="ID">ID</span>
+													<span class="stars">用户名</span>
+													<span onClick="add_manager()" class="btn-inline btn-add btn-sm" >添加</span>
 													</a>
 												</li>
 												<c:forEach items="${all_manager}" var="manager" varStatus="current">
 													<li class="public source no-description">
-													<a href="" id="${current.index}" class="mini-repo-list-item">
-													<span class="repo" title="ID">${manager.id }</span>
-													<span class="stars"> ${manager.manager } </span>
+													<a id="${current.index}" class="mini-repo-list-item">
+														<span class="repo" name="id" title="ID">${manager.id }</span>
+														<span class="stars"> ${manager.manager } </span>
+														<span onClick="delete_manager(this)" class="btn-inline btn-delete btn-sm" >删除</span>
 													</a>
 													</li>
 												</c:forEach>
@@ -145,12 +143,14 @@
 													}
 												%>
 												<li id="control" class="public source no-description ">
-													<span class="mini-repo-list-item">
-														<a href="javascript:void()" onclick="firstPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="">第一页</a>
-														<a href="javascript:void()" onclick="previousPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')"  >上一页</a>
-														<a href="javascript:void()" onclick="nextPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="" >下一页</a>
-														<a href="javascript:void()" onclick="lastPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="">最后一页(${page_pointer.total})</a>
-													</span>
+													<div class="mini-repo-list-item ">
+														<div class="panel-btn-control">
+															<a href="javascript:void()" onclick="firstPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="btn-control">第一页</a>
+															<a href="javascript:void()" onclick="previousPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="btn-control" >上一页</a>
+															<a href="javascript:void()" onclick="nextPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="btn-control" >下一页</a>
+															<a href="javascript:void()" onclick="lastPage('<%=path%>/ManagerServlet','${page_pointer.total}','${page_pointer.current}')" class="btn-control">最后一页(${page_pointer.total})</a>
+														</div>
+													</div>
 												</li>
 											</c:when>
 											<c:otherwise>
@@ -178,11 +178,11 @@
 													
 									</ul>
 								</div>
-							</div>			
+							</div>
 						</div>
 					</div>
-	    		</div>			    		
-			</div>	
+	    		</div>
+			</div>
 					
 		</div>
 
@@ -190,5 +190,6 @@
 	</div>
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/manager/pageIndex.js"></script>
+<script src="${pageContext.request.contextPath}/js/manager/manager.js"></script>
 </body>
 </html>

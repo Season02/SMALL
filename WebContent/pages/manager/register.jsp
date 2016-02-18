@@ -84,11 +84,11 @@
 			<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="注册"></p>
 		</form>
 		<p id="nav">
-		<a href="<%=path %>/index.jsp">登录</a> |
+		<a href="<%=path %>/pages/manager/login.jsp">登录</a> |
 		<a href="http://www.ixiqi.com/wp-login.php?action=lostpassword" title="找回密码">忘记密码？</a>
 		</p>
 	
-		<p id="backtoblog"><a href="/index.jsp" title="不知道自己在哪？">← 回到樱花商城主页！</a></p>
+		<p id="backtoblog"><a href="<%=path %>/index.jsp" title="不知道自己在哪？">← 回到樱花商城主页！</a></p>
 	</div>
 
 	<script type="text/javascript">

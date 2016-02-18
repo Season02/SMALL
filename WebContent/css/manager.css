@@ -19,6 +19,7 @@ body
 	nimbussansl, liberationsans, freesans,
 	clean, sans-serif, "Apple Color Emoji", 
 	"Segoe UI Emoji", "Segoe UI Symbol";
+	font-family: "Microsoft YaHei",tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
 	color: #333;
 	background-color: #fff;
 }
@@ -278,6 +279,21 @@ list-style-type: disc;
 {
 	float:right;
 }
+
+.btn-control
+{
+	margin-left:1%;
+}
+
+.panel-btn-control
+{
+	margin-left:30%;
+	width:80%;
+}
+
+
+
+
 
 
 

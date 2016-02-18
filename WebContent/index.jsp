@@ -11,12 +11,15 @@
 	</head>
 <body>
 <%@include file="pages/stage/top.jsp"%>
-<!--顶部导航-->
-<div id="top"></div>
-<!--中间主体内容-->
-<div class="main">
-     <!--中间主体左侧内容-->
-      <div class="main_l">
+	<div class="main-nav">
+		<div class="logo-con">
+			<img src="images/post-logo.png" style="margin-top: 1px" width="153" height="153/">
+		</div>
+	</div>
+	<!--中间主体内容-->
+	<div class="main">
+	     <!--中间主体左侧内容-->
+	      <div class="main_l">
       
   <h2>商品分类</h2>
   <ul>

@@ -135,11 +135,11 @@
 }
 
 .user-name {
-	background: url("picture/login-key-icon.png") no-repeat 15px center;
+	background: url("../../picture/login-key-icon.png") no-repeat 15px center;
 }
 
 .pass-word {
-	background: url("picture/login-locked-icon.png") no-repeat 15px center;
+	background: url("../../picture/login-locked-icon.png") no-repeat 15px center;
 	margin-bottom: 10px;
 }
 
@@ -188,7 +188,7 @@ body {
 	/*padding-bottom: 40px;*/
 	/*padding-top: 60px;*/
 	/*min-height: 101%;*/
-	background: url(picture/bc.jpg) no-repeat left;
+	background: url(../../picture/bc.jpg) no-repeat left;
 	background-size: 1300px;
 	background-attachment: fixed;
 	color: #404040;

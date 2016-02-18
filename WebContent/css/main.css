@@ -1,4 +1,38 @@
-﻿body{padding:0px;margin:0px;}
+.main-nav
+{
+	margin-bottom: 0;
+	min-width: 990px;
+	background: #fff;
+	z-index: 1000;
+	height:153px;
+}
+
+.logo-con
+{
+	height: 154px;
+	width: 290px;
+	position: absolute;
+	z-index: 100000;
+	margin:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body{padding:0px;margin:0px;}
 .main{padding-left:20px;padding-right:20px;margin:0 auto;width:984px; height:700px}
 .main_l{ width:212px;height:698px; float:left;}
 .main_c{width:502px;height:698px; float:left;padding-left:15px;padding-right:15px;}

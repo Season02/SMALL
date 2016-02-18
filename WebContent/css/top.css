@@ -1,31 +1,43 @@
-body{margin:0px;padding:0px}
-ul{list-style:none;padding:0px;margin:0px;}
-a{text-decoration:none;}
-image{border:none;}
-
-.top
+.header 
 {
-	margin:0 auto;width:1024px;height:132px; 
-	background-image:url('../images/h_bg.jpg');
-	background-repeat:no-repeat;
+	width: 100%;
+	line-height:100%;
+	
+	height: 12px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #e5e5e5;
+	display:block;	
 }
-.top_1{width:1024px;height:42px; padding-top:10px; }
-.top_2{width:1002px;height:22px; padding-top:25px;padding-right:24px;font-size:13px;text-align:right;font-weight:bold;}
-.top_3{padding-left:24px;width:1002px;height:32px; }
 
-.top_1 ul{padding:0px;margin:0px;list-style:none;width:1024px; }
-.top_1 ul li{padding:2px;float:right;width:80px; }
-.top_1 ul li a{padding-top:4px;font-size:12px;font-weight:bold;color:#000;display:block;height:20px;}
-.href_1{text-align:right;width:80px;height:20px;background-image:url('../images/icon1.gif');background-position:5px -4px;}
-.href_2{text-align:right;width:80px;height:20px;background-image:url('../images/icon4.gif');background-position:-127px -4px;}
-.href_3{text-align:right;width:80px;height:20px;background-image:url('../images/icon3.gif');background-position:-87px -4px;}
-.href_4{text-align:right;width:80px;height:20px;background-image:url('../images/icon2.gif');background-position:-42px -4px;}
-#login_btn{text-align:center;width:50px;height:18px;border:solid 1px #999;}
-#reg_btn{text-align:center;width:50px;height:18px;border:solid 1px #999;}
+.container 
+{
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+}
 
-.top_3 ul{float:left;width:682px; height:28px;}
-.top_3 ul li{float:left;height:28px;width:83px; }
-.top_3 ul li a{font-size:14px;font-weight:bold;height:20px;display:block;width:81px;text-align:center;padding-top:6px;color:#000;}
-.top3_right{display:block;float:right;padding-top:3px;padding-right:31px;}
-.search_input{width:154px;height:18px;display:block;float:right; }
-.search_btn{display:block;width:72px;float:right; height:22px;}
+.container .sn-login-info
+{
+	display: inline-block;
+	font-style: normal;
+	color: #999;
+	text-indent: 10px;
+	font-size: 0.8em;
+	font-family: "Microsoft YaHei",tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+a
+{
+	text-decoration: none;
+	color: #999;
+	padding-left: 20px;
+}
+
+a:hover
+{
+	color: #c40000;
+}
